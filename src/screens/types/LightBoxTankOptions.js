@@ -135,7 +135,6 @@ class LightBoxTankOptions extends React.Component {
             keyboardType={keyboard}
             defaultValue={""+value} 
             autoCorrect={false}
-            multiline={true}
             editable={true}
             onChangeText={(text) => this.changeValue(text, dataType)}
             />
