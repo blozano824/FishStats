@@ -85,23 +85,22 @@ class LightBoxTankOptions extends React.Component {
         if (text != "") {
             console.log("CHanging dissovled Oxygen to: "+text)
             testDate = new Date
-            if (dataType != "notes"){
-                firebase.database()
-                .ref("entries/"+(testDate.getMonth()+1)+"-"+testDate.getDate()+"-"+testDate.getFullYear()+"/"+this.props.index+"/")
-                .update({
-                [dataType]: parseFloat(text)
-                })
-            }
-            else{
+            if ((dataType == "notes") || (dataType == "initials")){
                 firebase.database()
                 .ref("entries/"+(testDate.getMonth()+1)+"-"+testDate.getDate()+"-"+testDate.getFullYear()+"/"+this.props.index+"/")
                 .update({
                 [dataType]: text
                 })
             }
+            else{
+                firebase.database()
+                .ref("entries/"+(testDate.getMonth()+1)+"-"+testDate.getDate()+"-"+testDate.getFullYear()+"/"+this.props.index+"/")
+                .update({
+                [dataType]: parseFloat(text)
+                })
+            }
         }
         else{
-            console.log("CHanging dissovled Oxygen to: "+text)
             testDate = new Date
             firebase.database()
             .ref("entries/"+(testDate.getMonth()+1)+"-"+testDate.getDate()+"-"+testDate.getFullYear()+"/"+this.props.index+"/")
@@ -116,12 +115,18 @@ class LightBoxTankOptions extends React.Component {
         if (dataType == "notes"){
             keyboard = "default"
         }
+        if (dataType == "initials"){
+            keyboard = "default"
+        }
         if (value == undefined){
             return <TextInput 
             style={[{height: 18, width: 70, textAlign: 'right'}, styles.subtext]} 
             placeholder= "Enter" 
             placeholderTextColor={"#bdc3c7"}
             keyboardType={keyboard}
+            keyboardAppearance="dark"
+            returnKeyType="done"
+            autoCapitalize="characters"
             autoCorrect={false}
             editable={true}
             onChangeText={(text) => this.changeValue(text, dataType)}
@@ -133,6 +138,9 @@ class LightBoxTankOptions extends React.Component {
             placeholder= "Enter" 
             placeholderTextColor={"#bdc3c7"}
             keyboardType={keyboard}
+            keyboardAppearance="dark"
+            returnKeyType="done"
+            autoCapitalize="characters"
             defaultValue={""+value} 
             autoCorrect={false}
             editable={true}
@@ -152,7 +160,7 @@ class LightBoxTankOptions extends React.Component {
             placeholder= "Enter" 
             placeholderTextColor={"#bdc3c7"}
             keyboardType={keyboard}
-            //returnKeyType="done"
+            keyboardAppearance="dark"
             autoCorrect={false}
             multiline={true}
             editable={true}
@@ -165,7 +173,7 @@ class LightBoxTankOptions extends React.Component {
             placeholder= "Enter" 
             placeholderTextColor={"#bdc3c7"}
             keyboardType={keyboard}
-            //returnKeyType="done"
+            keyboardAppearance="dark"
             defaultValue={""+value} 
             autoCorrect={false}
             multiline={true}
@@ -197,6 +205,13 @@ class LightBoxTankOptions extends React.Component {
                             </TouchableOpacity>
                         </View>
                         <ScrollView showsVerticalScrollIndicator={false}>
+                        <Text style={styles.subcategory}>{'Logger Info'}</Text>
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                            <Text style={styles.subtitle}>{'      Initials: '}</Text>
+                            <View>
+                                {this.valueInput(this.props.initials, "initials")}
+                            </View>
+                        </View>
                         <Text style={styles.subcategory}>{'Daily Water Quality'}</Text>
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                             <Text style={styles.subtitle}>{'      DO: '}</Text>

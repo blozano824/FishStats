@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Button} from 'react-native';
+import {StyleSheet, View, Button, Text} from 'react-native';
 
 class MyClass extends React.Component {
 
@@ -27,7 +27,8 @@ class MyClass extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.button}>
+        <Text style={{textAlign: "center", fontSize: 30, fontWeight: '700'}}>{"Warnings and Suggestions\nComming Soon!"}</Text>
+        {/* <View style={styles.button}>
           <Button
             onPress={this.onShowModal}
             title="Show Modal"/>
@@ -36,7 +37,7 @@ class MyClass extends React.Component {
           <Button
             onPress={this.onPushToFirstTab}
             title="Push to First Tab"/>
-        </View>
+        </View> */}
       </View>
     );
   }

@@ -31,6 +31,7 @@ class FishTanks extends Component {
     navBarBackgroundColor: '#27ae60',
     statusBarColor: '#27ae60',
     tabFontFamily: 'BioRhyme-Bold',
+    navBarTextFontSize: 22,
   };
 
   static navigatorButtons = {

@@ -8,16 +8,18 @@ registerScreens();
 registerScreenVisibilityListener();
 
 const tabs = [{
-  label: 'Tanks',
-  screen: 'FishStats.FishTanks',
-  icon: require('../img/list.png'),
-  title: 'Fish Tanks',
-}, {
-  label: 'Actions',
-  screen: 'example.Actions',
-  icon: require('../img/swap.png'),
-  title: 'Navigation Actions',
-}];
+    label: 'Tanks',
+    screen: 'FishStats.FishTanks',
+    icon: require('../img/list.png'),
+    title: 'Fish Tanks',
+  }, 
+  // {
+  //   label: 'Actions',
+  //   screen: 'example.Actions',
+  //   icon: require('../img/swap.png'),
+  //   title: 'Navigation Actions',
+  // }
+  ];
 
 if (Platform.OS === 'android') {
   tabs.push({
@@ -31,7 +33,7 @@ if (Platform.OS === 'android') {
 // this will start our app
 Navigation.startTabBasedApp({
   tabs,
-  animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
+  animationType: 'fade',
   tabsStyle: {
     tabBarBackgroundColor: '#27ae60',
     tabBarButtonColor: '#ffffff',

@@ -31,6 +31,7 @@ export default class SliderEntry extends Component {
                 databaseLength: this.props.databaseLength,
                 index: this.props.index,
                 tankName: this.props.tankName,
+                initials: this.props.initials,
                 fishFed: this.props.fishFed,
                 dissolvedOxygen: this.props.dissolvedOxygen,
                 temperature: this.props.temperature,
@@ -141,7 +142,7 @@ export default class SliderEntry extends Component {
     };
 
     render () {
-        const { tankName, fishFed, dissolvedOxygen, temperature, pH, TAN, NH3, NO2, NaHCO3, NaCl, waterChange, food, even, index} = this.props;
+        const { tankName, initials, fishFed, dissolvedOxygen, temperature, pH, TAN, NH3, NO2, NaHCO3, NaCl, waterChange, food, even, index} = this.props;
 
         return (
             <TouchableOpacity
