@@ -1,7 +1,8 @@
-import {Platform} from 'react-native';
+import {Platform, Dimensions} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {registerScreens, registerScreenVisibilityListener} from './screens';
 
+const {height, width} = Dimensions.get('window')
 
 // screen related book keeping
 registerScreens();
@@ -45,6 +46,13 @@ Navigation.startTabBasedApp({
   drawer: {
     left: {
       screen: 'example.Types.Drawer'
-    }
+    },
+    style: { // ( iOS only )
+      drawerShadow: false, 
+      leftDrawerWidth: 75,
+    },
+    type: 'MMDrawer', // optional, iOS only, types: 'TheSideBar', 'MMDrawer' default: 'MMDrawer'
+    animationType: 'door', //optional, iOS only, for MMDrawer: 'door', 'parallax', 'slide', 'slide-and-scale'
+                                        // for TheSideBar: 'airbnb', 'facebook', 'luvocracy','wunder-list'
   }
 });

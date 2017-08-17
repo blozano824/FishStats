@@ -153,7 +153,7 @@ export default class SliderEntry extends Component {
               >
                 <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
                     
-                    <Image source={{uri: 'https://cdn.dribbble.com/users/735993/screenshots/2865508/fish.gif'}} style={styles.image}/>
+                    <Image source={require('../../img/fish.gif')} style={styles.image}/>
 
                 </View>
                 <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>

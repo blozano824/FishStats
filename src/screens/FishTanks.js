@@ -263,7 +263,11 @@ class FishTanks extends Component {
                   height: 20,
                   borderRadius: 10,
                   marginHorizontal: 8,
-                  backgroundColor: '#27ae60'
+                  backgroundColor: '#27ae60',
+                  shadowOffset:{  width: 0,  height: 2},
+        shadowColor: 'black',
+        shadowOpacity: 0.9,
+        shadowRadius: 5,
               }}
               inactiveDotOpacity={0.4}
               inactiveDotScale={0.6}

@@ -36,6 +36,8 @@ export default StyleSheet.create({
     image: {
         ...StyleSheet.absoluteFillObject,
         resizeMode: 'contain',
+        height: slideHeight-260,
+        width: slideWidth,
         borderRadius: Platform.OS === 'ios' ? entryBorderRadius : 0,
         borderTopLeftRadius: entryBorderRadius,
         borderTopRightRadius: entryBorderRadius
@@ -58,6 +60,10 @@ export default StyleSheet.create({
         paddingBottom: 20,
         paddingHorizontal: 16,
         backgroundColor: colors.cloud,
+        shadowOffset:{  width: 0,  height: 3},
+        shadowColor: 'black',
+        shadowOpacity: 0.9,
+        shadowRadius: 10,
     },
     textContainerEven: {
         backgroundColor: colors.navy

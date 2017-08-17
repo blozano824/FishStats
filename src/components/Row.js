@@ -2,16 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, Text, TouchableHighlight, Platform} from 'react-native';
 
-function Row({title, onPress, platform, testID}) {
-  if (platform && platform !== Platform.OS) {
-    return <View />;
-  }
-
+function Row({title, urgent, warning}) {
   return (
     <TouchableHighlight
-      onPress={onPress}
-      testID={testID}
-      underlayColor={'rgba(0, 0, 0, 0.054)'}
+      style={[urgent ? styles.urgent: {}, warning ? styles.warning: {}]}
     >
       <View style={styles.row}>
         <Text style={styles.text}>{title}</Text>
@@ -22,22 +16,45 @@ function Row({title, onPress, platform, testID}) {
 
 Row.propTypes = {
   title: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
+  urgent: PropTypes.bool.isRequired,
+  warning: PropTypes.bool.isRequired,
 };
 
 const styles = StyleSheet.create({
   row: {
-    height: 48,
-    paddingHorizontal: 16,
+    flex: 1,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0, 0, 0, 0.054)',
   },
   text: {
+    paddingTop: 10,
+    paddingBottom: 10,
     fontSize: 16,
+    color: '#ffffff',
+    fontWeight: '600'
   },
+  urgent:{
+    backgroundColor:'#c0392b',
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 10,
+    shadowOffset:{  width: 0,  height: 3},
+    shadowColor: 'black',
+    shadowOpacity: 0.9,
+    shadowRadius: 4,
+  },
+  warning:{
+    backgroundColor:'#f9bd49',
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 10,
+    shadowOffset:{  width: 0,  height: 3},
+    shadowColor: 'black',
+    shadowOpacity: 0.9,
+    shadowRadius: 4,
+  }
 });
 
 export default Row;
